@@ -58,6 +58,10 @@ than short/simple ones.
 **Training data used:** 19,793 baseline pairs + 5,000 back-translated pairs + ~1,995
 paraphrased pairs (~26,788 total pairs for the augmented model).
 
+For context: BLEU scores in the single digits are typical for a small model (mT5-small) fine-tuned on a modest 20k-pair dataset for a genuinely low-resource pair like Urdu-English — published low-resource NMT baselines in this data/compute range commonly fall in a similar range. The relative improvement from augmentation (+0.84 BLEU, +1.08 chrF) is the meaningful signal here, not the absolute score.
+
+## Notes / things I had to work around
+
 ## Notes / things I had to work around
 - I ran into NaN losses fine-tuning mT5 with the default AdamW optimizer + fp16 — mT5
   turns out to be numerically unstable that way. Switching to the `Adafactor` optimizer
